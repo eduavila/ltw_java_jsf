@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <h:dataTable value="#{alunoBean.listaAlunos}"
+                         var="aluno">
+                <h:column>
+                    <f:facet name="head"> Matricula </f:facet>
+                    <h:outputText value="#{aluno.matricula}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="head"> Nome </f:facet>
+                    <h:outputText value="#{aluno.primeiroNome}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="head"> Nome </f:facet>
+                    <h:outputText value="#{aluno.primeiroNome}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="head"> Editar </f:facet>
+                    <h:commandLink action="#{alunoBean.editarAluno(aluno)}">Editar</h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:form>
+            
+            <h:outputLabel for="nome-completo">Nome:</h:outputLabel>
+            <h:inputText  value="#{alunoBean.novoAluno.nomeCompleto}"></h:inputText>
+                   
+            <h:selectOneMenu value="#{alunoBean.novoAluno.cursoID}">
+                <f:selectItems value="#{alunoBean.listaCursos}" />
+            </h:selectOneMenu>
+            
+            <h:outputLabel for="rga">RGA</h:outputLabel>
+            <h:inputText  value="#{alunoBean.novoAluno.rga}"></h:inputText>
+            
+            <h:outputLabel for="telefone">Telefone:</h:outputLabel>
+            <h:inputText  value="#{alunoBean.novoAluno.telefone}"></h:inputText>
+            
+            <h:outputLabel for="email">E-Mail:</h:outputLabel>
+            <h:inputText  value="#{alunoBean.novoAluno.email}"></h:inputText>
+                  
+        </h:form>
+    </h:body>
+</html>
+
